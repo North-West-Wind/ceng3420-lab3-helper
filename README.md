@@ -11,9 +11,10 @@ npm i -g ceng3420-lab3-helper
 ## Usage
 After installing the package globally with the previous command, a new `uop-editor` program should be available.
 ```bash
-uop-editor <path>
+uop-editor <path> [-r <refpath>]
 ```
-`<path>` is the path to the `uop` file you want to edit.
+`<path>` is the path to the `uop` file you want to edit.  
+`-r <refpath>` is an optional argument to supply a reference `uop` file. This makes the "show X only" function also shows signals that are originally `X` but modified, saved and re-opened in another session.
 
 ## Key Bindings
 As this is a TUI program, you can navigate using your keyboard.
