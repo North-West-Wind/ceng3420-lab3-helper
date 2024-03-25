@@ -3,17 +3,43 @@
   "version": "0.0.1",
   "description": "A TUI program to edit the uop file.",
   "main": "dist/index.js",
+  "bin": {
+    "uop-editor": "dist/index.js"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ts-node src/index.ts test/uop",
+    "build": "tsc"
   },
   "author": "NorthWestWind",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@types/node": "^20.11.30",
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
   },
   "dependencies": {
     "commander": "^12.0.0",
     "console-gui-tools": "^3.5.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/North-West-Wind/ceng3420-lab3-helper.git"
+  },
+  "keywords": [
+    "cuhk",
+    "cse",
+    "ceng3420",
+    "lab3"
+  ],
+  "bugs": {
+    "url": "https://github.com/North-West-Wind/ceng3420-lab3-helper/issues"
+  },
+  "homepage": "https://github.com/North-West-Wind/ceng3420-lab3-helper#readme"
 }
