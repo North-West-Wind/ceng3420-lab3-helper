@@ -1,6 +1,6 @@
 {
   "name": "ceng3420-lab3-helper",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A TUI program to edit the uop file.",
   "main": "dist/index.js",
   "bin": {
