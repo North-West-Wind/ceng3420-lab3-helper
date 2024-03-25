@@ -1,6 +1,6 @@
 {
   "name": "uop-editor",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A TUI program to edit the uop file.",
   "main": "dist/index.js",
   "bin": {

@@ -8,7 +8,7 @@ import { LONGEST_NAME, NAMES, STATE_NAMES } from "./constants";
 program
 	.name("CENG3420 Lab3 UOP Editor")
 	.description("A TUI program for editing uop file.")
-	.version("1.1.0")
+	.version("1.1.1")
 	.argument("<path>", "path of the uop file")
 	.option("-r, --reference <path>", "path of a reference uop file");
 
@@ -127,7 +127,7 @@ GUI.on("keypressed", (key) => {
 		case "d":
 			selectedPage = (selectedPage + 1) % 128;
 			if (key.ctrl) {
-				const keys = Array.from(STATE_NAMES.keys());
+				const keys = initStates.map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
 				const filtered = keys.filter(x => x >= selectedPage);
 				if (!filtered.length) selectedPage = Math.min(...keys);
 				else selectedPage = Math.min(...filtered);
@@ -138,7 +138,7 @@ GUI.on("keypressed", (key) => {
 			selectedPage--;
 			if (selectedPage < 0) selectedPage = 127;
 			if (key.ctrl) {
-				const keys = Array.from(STATE_NAMES.keys());
+				const keys = initStates.map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
 				const filtered = keys.filter(x => x <= selectedPage);
 				if (!filtered.length) selectedPage = Math.max(...keys);
 				else selectedPage = Math.max(...filtered);
