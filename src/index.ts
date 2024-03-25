@@ -8,15 +8,23 @@ import { LONGEST_NAME, NAMES, STATE_NAMES } from "./constants";
 program
 	.name("CENG3420 Lab3 UOP Editor")
 	.description("A TUI program for editing uop file.")
-	.version("0.0.1")
-	.argument("<path>", "path of the uop file");
+	.version("1.1.0")
+	.argument("<path>", "path of the uop file")
+	.option("-r, --reference <path>", "path of a reference uop file");
 
 program.parse();
+const opts = program.opts();
 
 const uopPath = program.processedArgs[0];
+const refPath = opts.reference;
 
 if (!existsSync(uopPath)) {
 	console.log("Cannot find uop file:", uopPath);
+	exit(1);
+}
+
+if (refPath && !existsSync(refPath)) {
+	console.log("Cannot find uop file:", refPath);
 	exit(1);
 }
 
@@ -31,13 +39,33 @@ for (const line of content.split("\n")) {
 		else if (char == '1') localStates.push(1);
 	}
 	states.push(localStates);
-	initStates.push(Array.from(localStates));
+	if (!refPath) initStates.push(Array.from(localStates));
 }
 
 if (states.length != 128 || states.some(s => s.length != 33)) {
 	console.log("Invalid uop file");
 	exit(2);
 }
+
+if (refPath) {
+	const refContent = readFileSync(refPath, { encoding: "utf8" });
+	for (const line of refContent.split("\n")) {
+		if (line.length != 33) continue;
+		const localStates: number[] = [];
+		for (const char of line) {
+			if (char == 'x') localStates.push(-1);
+			else if (char == '0') localStates.push(0);
+			else if (char == '1') localStates.push(1);
+		}
+		initStates.push(Array.from(localStates));
+	}
+
+	if (initStates.length != 128 || initStates.some(s => s.length != 33)) {
+		console.log("Invalid reference uop file");
+		exit(2);
+	}
+}
+
 
 const GUI = new ConsoleManager({
 	title: "UOP Editor",
@@ -145,6 +173,7 @@ GUI.on("keypressed", (key) => {
 		case "e":
 			writeFileSync(uopPath, convertStatesToString(), { encoding: "utf8" });
 			GUI.log("Saved!");
+			modified = false;
 			break;
 		case "q":
 			if (!modified) quit();

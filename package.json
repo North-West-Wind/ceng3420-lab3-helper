@@ -1,6 +1,6 @@
 {
   "name": "uop-editor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A TUI program to edit the uop file.",
   "main": "dist/index.js",
   "bin": {
@@ -11,7 +11,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "test": "ts-node src/index.ts test/uop",
+    "test": "ts-node src/index.ts test/uop -r test/uop-ref",
     "build": "tsc"
   },
   "author": "NorthWestWind",
