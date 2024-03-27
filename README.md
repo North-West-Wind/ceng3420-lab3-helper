@@ -6,7 +6,7 @@ Starting lab 3.1 and finding it incredibly painful to edit the `uop` file? Not a
 This is a website I made to make the process of editing the `uop` file much easier. You may access it at https://www.northwestw.in/uop-editor
 
 ## Usage
-Please use a computer. No mobile support are planned.
+Please use a computer. No mobile support planned.
 
 Open your `uop` file and copy all of its content and paste it into the input box. If the content is valid, the UI on the right should change.
 
