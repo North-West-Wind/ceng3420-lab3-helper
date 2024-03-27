@@ -24,7 +24,9 @@ function App() {
         }
         setStates(readStates);
       }} states={states} />
-      <Editor states={states} onStateChange={setStates} />
+      <Editor states={states} onStateChange={states => {
+        setStates(Array.from(states));
+        }} />
     </>
   )
 }

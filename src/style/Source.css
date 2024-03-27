@@ -2,4 +2,9 @@
 	width: 20%;
 	padding: 2em;
 	display: flex;
+	flex-direction: column;
+}
+
+textarea {
+	height: 50%;
 }

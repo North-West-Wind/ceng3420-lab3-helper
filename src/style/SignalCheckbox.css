@@ -1,0 +1,19 @@
+div.checkbox-container {
+	display: flex;
+	align-items: center;
+}
+
+.checkbox {
+	width: 2vmin;
+	height: 2vmin;
+	margin-right: 1vmin;
+}
+
+.checkbox:hover {
+	filter: brightness(80%);
+	cursor: pointer;
+}
+
+label {
+	font-size: 2vmin;
+}

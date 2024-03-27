@@ -15,13 +15,14 @@
 }
 
 .big-container {
-	margin: 1em;
+	margin: auto 1em;
 	width: 80%;
 	border-style: solid;
 	border-width: .5vmin;
 	border-color: #777777;
 	border-radius: 1vmin;
 	padding: .5vmin;
+	height: fit-content;
 }
 
 .state-container {
