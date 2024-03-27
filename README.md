@@ -1,30 +1,18 @@
-# React + TypeScript + Vite
+Starting lab 3.1 and finding it incredibly painful to edit the `uop` file? Not anymore!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Introducing the UOP Editor
+![image.png](https://piazza.com/redirect/s3?bucket=uploads&prefix=paste%2Flm4ip52hdn6281%2F7c509ba5c511eb37833c7b52d72e11c0c7a457951c60342c307a239cff7a144a%2Fimage.png)
 
-Currently, two official plugins are available:
+This is a website I made to make the process of editing the `uop` file much easier. You may access it at https://www.northwestw.in/uop-editor
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Usage
+Please use a computer. No mobile support are planned.
 
-## Expanding the ESLint configuration
+Open your `uop` file and copy all of its content and paste it into the input box. If the content is valid, the UI on the right should change.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The signals of a state are categorized into 6 categories. Each signal label has a square next to it representing its value (red = 0, green = 1, orange = x). Labels marked with a * are the ones you want to edit.
 
-- Configure the top-level `parserOptions` property like this:
+To edit another state, click on the arrow next to "State: X". Double arrows will jump to states where there are signals to be edited.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## License
+GPLv3
