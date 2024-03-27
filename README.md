@@ -14,5 +14,7 @@ The signals of a state are categorized into 6 categories. Each signal label has 
 
 To edit another state, click on the arrow next to "State: X". Double arrows will jump to states where there are signals to be edited.
 
+When you are done, copy the text in output back to your `uop` file.
+
 ## License
 GPLv3
