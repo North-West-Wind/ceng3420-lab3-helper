@@ -1,39 +1,3 @@
-export const NAMES = [
-	"IRD",
-	"J6",
-	"J5",
-	"J4",
-	"J3",
-	"J2",
-	"J1",
-	"J0",
-	"LD.PC",
-	"LD.MAR",
-	"LD.MDR",
-	"LD.IR",
-	"LD.REG",
-	"LD.BEN",
-	"GatePC",
-	"GateMAR",
-	"GateMDR",
-	"GateALUSHF",
-	"GateRS2",
-	"PCMUX",
-	"ADDR1MUX",
-	"(Empty)",
-	"ADDR2MUX",
-	"(Empty)",
-	"MARMUX",
-	"MDRMUX",
-	"RS2MUX",
-	"RS2En",
-	"RS1En",
-	"MIO_EN",
-	"WE",
-	"DATASIZE",
-	"RESET"
-];
-
 export const STATE_NAMES = new Map<number, string>();
 STATE_NAMES.set(0, "MAR <- PC; PC <- PC + 4");
 STATE_NAMES.set(37, STATE_NAMES.get(0)!);
@@ -57,5 +21,3 @@ STATE_NAMES.set(111, "rd <- PC + 4 (jal)");
 STATE_NAMES.set(112, "PC <- JAL's PC + imm20");
 STATE_NAMES.set(103, "rd <- PC + 4 (jalr)");
 STATE_NAMES.set(102, "PC <- rs1 + imm12");
-
-export const LONGEST_NAME = 10;

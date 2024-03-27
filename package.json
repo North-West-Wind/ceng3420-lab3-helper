@@ -1,45 +1,28 @@
 {
-  "name": "uop-editor",
-  "version": "1.1.1",
-  "description": "A TUI program to edit the uop file.",
-  "main": "dist/index.js",
-  "bin": {
-    "uop-editor": "dist/index.js"
-  },
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/**/*"
-  ],
+  "name": "uop-editor-web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "ts-node src/index.ts test/uop -r test/uop-ref",
-    "build": "tsc"
-  },
-  "author": "NorthWestWind",
-  "license": "GPL-3.0-or-later",
-  "devDependencies": {
-    "@types/node": "^20.11.30",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.4.3"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "commander": "^12.0.0",
-    "console-gui-tools": "^3.5.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "directories": {
-    "test": "test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/North-West-Wind/ceng3420-lab3-helper.git"
-  },
-  "keywords": [
-    "cuhk",
-    "cse",
-    "ceng3420",
-    "lab3"
-  ],
-  "bugs": {
-    "url": "https://github.com/North-West-Wind/ceng3420-lab3-helper/issues"
-  },
-  "homepage": "https://github.com/North-West-Wind/ceng3420-lab3-helper#readme"
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
+  }
 }

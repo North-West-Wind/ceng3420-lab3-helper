@@ -1,0 +1,62 @@
+.flex {
+	display: flex;
+}
+
+.flex.vflex {
+	flex-direction: column;
+}
+
+.flex.hcenter {
+	justify-content: center;
+}
+
+.flex.vcenter {
+	align-items: center;
+}
+
+.big-container {
+	margin: 1em;
+	width: 80%;
+	border-style: solid;
+	border-width: .5vmin;
+	border-color: #777777;
+	border-radius: 1vmin;
+	padding: .5vmin;
+}
+
+.state-container {
+	padding: 1vmin;
+	height: fit-content;
+}
+
+.double-signal-container {
+	position: relative;
+	height: 33.3%;
+}
+
+.signal-container {
+	border-style: solid;
+	border-width: .5vmin;
+	border-radius: 1vmin;
+	width: 50%;
+	margin: .5vmin;
+	padding: 2vmin;
+}
+
+h1, h2 {
+	margin: 0;
+}
+
+input[type=checkbox] {
+	width: 2vmin;
+	height: 2vmin;
+}
+
+.change-state {
+	user-select: none;
+}
+
+.change-state:hover {
+	filter: brightness(80%);
+	cursor: pointer;
+}
