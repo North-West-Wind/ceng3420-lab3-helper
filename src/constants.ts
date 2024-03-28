@@ -1,3 +1,39 @@
+export const NAMES = [
+	"IRD",
+	"J6",
+	"J5",
+	"J4",
+	"J3",
+	"J2",
+	"J1",
+	"J0",
+	"LD.PC",
+	"LD.MAR",
+	"LD.MDR",
+	"LD.IR",
+	"LD.REG",
+	"LD.BEN",
+	"GatePC",
+	"GateMAR",
+	"GateMDR",
+	"GateALUSHF",
+	"GateRS2",
+	"PCMUX",
+	"ADDR1MUX (MSB)",
+	"ADDR1MUX (LSB)",
+	"ADDR2MUX (MSB)",
+	"ADDR2MUX (LSB)",
+	"MARMUX",
+	"MDRMUX",
+	"RS2MUX",
+	"RS2En",
+	"RS1En",
+	"MIO_EN",
+	"WE",
+	"DATASIZE",
+	"RESET"
+];
+
 export const STATE_NAMES = new Map<number, string>();
 STATE_NAMES.set(0, "MAR <- PC; PC <- PC + 4");
 STATE_NAMES.set(37, STATE_NAMES.get(0)!);
