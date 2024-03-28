@@ -61,3 +61,11 @@ input[type=checkbox] {
 	filter: brightness(80%);
 	cursor: pointer;
 }
+
+.change-state.left {
+	margin-right: auto;
+}
+
+.change-state.right {
+	margin-left: auto;
+}

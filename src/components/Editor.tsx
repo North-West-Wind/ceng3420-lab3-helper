@@ -43,9 +43,13 @@ function Editor(props: { states: number[][], onStateChange: (states: number[][])
 
 	return <div className="flex vflex big-container">
 		<div className="state-container">
-			<h1>
-				<span className="change-state" onClick={decEditFar}>{"<<"}</span> <span className="change-state" onClick={decEdit}>{"<"}</span> State {editing} <span className="change-state" onClick={incEdit}>{">"}</span> <span className="change-state" onClick={incEditFar}>{">>"}</span>
-			</h1>
+			<div className="flex hcenter">
+				<h1 className="change-state left" onClick={decEditFar}>{"<<"}</h1> <h1 className="change-state left" onClick={decEdit}>{"<"}</h1>
+				<h1>
+					State {editing}
+				</h1>
+				<h1 className="change-state right" onClick={incEdit}>{">"}</h1> <h1 className="change-state right" onClick={incEditFar}>{">>"}</h1>
+			</div>
 			{STATE_NAMES.has(editing) && <p>{STATE_NAMES.get(editing)}</p>}
 		</div>
 		<div className="flex double-signal-container">
