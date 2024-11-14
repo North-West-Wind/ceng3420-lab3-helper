@@ -25,7 +25,7 @@ function readStates(text: string | null) {
 
 function App() {
   const [states, setStates] = useState<number[][]>(readStates(read(LocalStorageKey.STATES)));
-  const [refStates, setRefStates] = useState(REF_STATES);
+  const [refStates, setRefStates] = useState<number[][] | null>(null);
 
   return (
     <>

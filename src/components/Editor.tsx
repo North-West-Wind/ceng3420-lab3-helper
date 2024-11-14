@@ -1,11 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../style/Editor.css";
 import { STATE_NAMES } from "../constants";
 import SignalCheckbox from "./SignalCheckbox";
 import { validStates } from "../util";
+import { REF_STATES } from "../helper/template";
 
-function Editor(props: { states: number[][], refStates: number[][], onStateChange: (states: number[][]) => void }) {
-	const [editing, setEditing] = useState(0);
+function Editor(props: { states: number[][], refStates: number[][] | null, onStateChange: (states: number[][]) => void }) {
+	const [editing, setEditing] = useState(parseInt(new URLSearchParams(window.location.search).get("s") || "0"));
+
+	useEffect(() => {
+		const url = new URL(window.location.href);
+		url.searchParams.set("s", `${editing}`);
+		window.history.pushState({ state: editing }, "", url);
+	}, [editing]);
+
+	useEffect(() => {
+		const popstate = (ev: PopStateEvent) => {
+			if (ev.state?.state) setEditing(parseInt(ev.state.state));
+			else setEditing(0);
+		};
+		window.addEventListener("popstate", popstate);
+		return () => window.removeEventListener("popstate", popstate);
+	}, []);
 
 	/*
 		Order of sections:
@@ -23,7 +39,7 @@ function Editor(props: { states: number[][], refStates: number[][], onStateChang
 
 	const decEditFar = () => {
 		let newEdit = editing - 1 < 0 ? 127 : editing - 1;
-		const keys = props.refStates.map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
+		const keys = (props.refStates || REF_STATES).map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
 		const filtered = keys.filter(x => x <= newEdit);
 		if (!filtered.length) setEditing(Math.max(...keys));
 		else setEditing(Math.max(...filtered));
@@ -35,7 +51,7 @@ function Editor(props: { states: number[][], refStates: number[][], onStateChang
 
 	const incEditFar = () => {
 		let newEdit = (editing + 1) % 128;
-		const keys = props.refStates.map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
+		const keys = (props.refStates || REF_STATES).map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
 		const filtered = keys.filter(x => x >= newEdit);
 		if (!filtered.length) setEditing(Math.min(...keys));
 		else setEditing(Math.min(...filtered));
