@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "../style/Editor.css";
-import { REF_STATES, STATE_NAMES } from "../constants";
+import { STATE_NAMES } from "../constants";
 import SignalCheckbox from "./SignalCheckbox";
 import { validStates } from "../util";
 
-function Editor(props: { states: number[][], onStateChange: (states: number[][]) => void }) {
+function Editor(props: { states: number[][], refStates: number[][], onStateChange: (states: number[][]) => void }) {
 	const [editing, setEditing] = useState(0);
 
 	/*
@@ -23,7 +23,7 @@ function Editor(props: { states: number[][], onStateChange: (states: number[][])
 
 	const decEditFar = () => {
 		let newEdit = editing - 1 < 0 ? 127 : editing - 1;
-		const keys = REF_STATES.map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
+		const keys = props.refStates.map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
 		const filtered = keys.filter(x => x <= newEdit);
 		if (!filtered.length) setEditing(Math.max(...keys));
 		else setEditing(Math.max(...filtered));
@@ -35,7 +35,7 @@ function Editor(props: { states: number[][], onStateChange: (states: number[][])
 
 	const incEditFar = () => {
 		let newEdit = (editing + 1) % 128;
-		const keys = REF_STATES.map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
+		const keys = props.refStates.map((v, k) => ({ v, k })).filter(x => x.v.some(v => v == -1)).map(x => x.k);
 		const filtered = keys.filter(x => x >= newEdit);
 		if (!filtered.length) setEditing(Math.min(...keys));
 		else setEditing(Math.min(...filtered));

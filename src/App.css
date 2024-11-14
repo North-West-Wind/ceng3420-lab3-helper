@@ -3,6 +3,7 @@
   height: 100vh;
   display: flex;
   margin: 0;
+  padding: 1vmin 0;
 }
 
 .logo {

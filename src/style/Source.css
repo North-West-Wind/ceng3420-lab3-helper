@@ -7,4 +7,19 @@
 
 textarea {
 	height: 50%;
+	width: 100%;
+}
+
+.local-container {
+	border-style: solid;
+	border-width: .5vmin;
+	border-radius: 1vmin;
+	width: 100%;
+	padding: 1vmin;
+}
+
+h3 {
+	margin: 0;
+	margin-bottom: .5vmin;
+	font-size: 1vmax;
 }
