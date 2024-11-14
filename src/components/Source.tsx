@@ -14,6 +14,10 @@ function Source(props: { onTextChange: (text: string) => void, onTemplateChange:
 	}, [props.states]);
 
 	return <div className="container">
+		<a className="info-container" href="https://github.com/North-West-Wind/ceng3420-lab3-helper" target="source">
+			<img src="/uop-editor-assets/info.svg" />
+			<label>Info</label>
+		</a>
 		<h2>Save to LocalStorage?</h2>
 		<SignalCheckbox states={[Array(34).fill(ls ? 1 : 0)]} indices={[0, 33]} onChange={() => {
 			if (!ls) {

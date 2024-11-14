@@ -1,6 +1,6 @@
 .container {
 	width: 20%;
-	padding: 2em;
+	padding: 0 2em;
 	display: flex;
 	flex-direction: column;
 }
@@ -22,4 +22,15 @@ h3 {
 	margin: 0;
 	margin-bottom: .5vmin;
 	font-size: 1vmax;
+}
+
+.info-container {
+	display: flex;
+	align-items: center;
+}
+
+.info-container img {
+	width: 4vmin;
+	height: 4vmin;
+	margin: 1vmin;
 }
